@@ -34,6 +34,8 @@ jobs:
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm install
+        name: Debug Files
+        ru: ls -R
       - name: Load database schema
         run: psql postgresql://lostfound:lostfound@localhost:5432/lostfound_test -f database/schema.sql
       - name: Build frontend
