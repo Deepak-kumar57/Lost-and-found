@@ -102,10 +102,8 @@ jobs:
             git pull origin main
 
             echo "Writing environment variables..."
-            cat > .env << 'ENVEOF'
-            DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
-            CORS_ORIGIN=http://${{ secrets.EC2_HOST }}:8080
-            ENVEOF
+            echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" > .env
+            echo "CORS_ORIGIN=http://${{ secrets.EC2_HOST }}:8080" >> .env
 
             echo "Pulling latest Docker images..."
             docker compose pull
