@@ -5,7 +5,7 @@ A full-stack Lost & Found Smart Portal with React frontend, Express backend, Pos
 ## Stack
 
 - Frontend: React + Vite
-- Backend: Node.js + Express
+- Backend: Node.js and Express
 - Database: PostgreSQL
 - Auth: JWT + bcrypt
 - Uploads: Local storage by default; optional AWS S3
