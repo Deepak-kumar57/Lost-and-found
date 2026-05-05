@@ -103,7 +103,7 @@ jobs:
 
             echo "Writing environment variables..."
             echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" > .env
-            echo "CORS_ORIGIN=http://${{ secrets.EC2_HOST }}:8080" >> .env
+            echo "CORS_ORIGIN=http://13.49.250.115:8080" >> .env
 
             echo "Pulling latest Docker images..."
             docker compose pull
