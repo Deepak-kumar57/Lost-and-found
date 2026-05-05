@@ -101,11 +101,23 @@ jobs:
             echo "Navigating to project directory..."
             cd /opt/lost-found-smart-portal/Lost-and-found
 
+            echo "Pulling latest raw files from GitHub..."
+            git pull origin main
+
             echo "Pulling latest Docker images..."
             docker-compose pull
 
             echo "Starting containers..."
             docker-compose up -d
+
+            echo "Waiting for PostgreSQL..."
+            sleep 10
+
+            echo "Applying schema..."
+            docker exec -i lostfound-postgres psql -U lostfound -d lostfound < database/schema.sql
+
+            echo "Applying seed..."
+            docker exec -i lostfound-postgres psql -U lostfound -d lostfound < database/seed.sql
 
             echo "Cleaning unused images..."
             docker image prune -f
